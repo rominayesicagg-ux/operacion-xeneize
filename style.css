@@ -1,0 +1,119 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --blue: #071b45;
+  --blue-light: #123c78;
+  --gold: #f5c928;
+  --white: #ffffff;
+  --muted: #b9c6dc;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  color: var(--white);
+  background:
+    radial-gradient(circle at 50% 20%, #17477d 0%, transparent 45%),
+    linear-gradient(145deg, #030b1d, var(--blue));
+}
+
+#app {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.screen {
+  width: 100%;
+  max-width: 850px;
+  min-height: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 35px 20px;
+  border: 1px solid rgba(245, 201, 40, .35);
+  border-radius: 22px;
+  background: rgba(3, 13, 34, .78);
+  box-shadow: 0 20px 80px rgba(0, 0, 0, .4);
+}
+
+.crest {
+  width: 112px;
+  height: 112px;
+  display: grid;
+  place-items: center;
+  border: 5px solid var(--gold);
+  border-radius: 50%;
+  color: var(--gold);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 35px;
+  background: var(--blue-light);
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 5px;
+  margin-bottom: 18px;
+}
+
+h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(54px, 10vw, 100px);
+  font-weight: 900;
+  line-height: .9;
+  letter-spacing: 2px;
+}
+
+h1 span {
+  color: var(--gold);
+}
+
+.intro {
+  color: var(--muted);
+  margin-top: 30px;
+  font-size: 17px;
+}
+
+button {
+  margin-top: 38px;
+  padding: 17px 55px;
+  border: none;
+  border-radius: 8px;
+  background: var(--gold);
+  color: var(--blue);
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: transform .2s, background .2s;
+}
+
+button:hover {
+  transform: scale(1.04);
+  background: #ffe16a;
+}
+
+@media (max-width: 600px) {
+  .screen {
+    min-height: 570px;
+  }
+
+  .eyebrow {
+    letter-spacing: 3px;
+  }
+}
