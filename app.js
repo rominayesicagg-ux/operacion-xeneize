@@ -68,7 +68,17 @@ const challenges = [
 
 let currentChallenge = 0;
 const answers = [];
+function narrar(texto) {
+  window.speechSynthesis.cancel();
 
+  const voz = new SpeechSynthesisUtterance(texto);
+  voz.lang = "es-AR";
+  voz.rate = 0.92;
+  voz.pitch = 0.85;
+  voz.volume = 1;
+
+  window.speechSynthesis.speak(voz);
+}
 function showChallenge() {
   const challenge = challenges[currentChallenge];
 
@@ -142,5 +152,8 @@ function showFinal() {
 document.getElementById("startButton").addEventListener("click", () => {
   currentChallenge = 0;
   answers.length = 0;
+
+  narrar("¡Señoras y señores! ¡Atención, Agustín! Hoy comienza una experiencia extraordinaria. Ocho desafíos, una pasión y una sorpresa que te está esperando. ¡Que comience Operación Xeneize!");
+
   showChallenge();
 });
