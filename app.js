@@ -68,7 +68,7 @@ const challenges = [
 
 let currentChallenge = 0;
 const answers = [];
-function narrar(texto) {
+function narrar(texto, alTerminar) {
   window.speechSynthesis.cancel();
 
   const voz = new SpeechSynthesisUtterance(texto);
@@ -76,6 +76,12 @@ function narrar(texto) {
   voz.rate = 0.92;
   voz.pitch = 0.85;
   voz.volume = 1;
+
+  voz.onend = () => {
+    if (typeof alTerminar === "function") {
+      alTerminar();
+    }
+  };
 
   window.speechSynthesis.speak(voz);
 }
@@ -108,6 +114,9 @@ function showChallenge() {
       </p>
     </section>
   `;
+   const texto = `${challenge.title}. ${challenge.question}. Opción uno: ${challenge.options[0]}. Opción dos: ${challenge.options[1]}.`;
+
+  narrar(texto);
 }
 
 function selectAnswer(index) {
