@@ -1,6 +1,4 @@
 
-const startButton = document.getElementById("startButton");
-
 const challenges = [
   {
     title: "EL RUGIDO DE LA BOMBONERA",
@@ -39,7 +37,7 @@ const challenges = [
     question: "¿Qué te representa más?",
     options: [
       "Creer hasta el último segundo que Boca puede ganar",
-      "Sentir que nunca hay que bajar los brazos"
+      "Sentir que nunca hay que bajar los brazos, pase lo que pase"
     ]
   },
   {
@@ -77,13 +75,19 @@ function showChallenge() {
   document.getElementById("app").innerHTML = `
     <section class="screen">
       <p class="eyebrow">OPERACIÓN XENEIZE</p>
+
       <h2>DESAFÍO ${currentChallenge + 1} / 8</h2>
+
       <h1>${challenge.title}</h1>
+
       <p class="intro">${challenge.question}</p>
 
       <div class="options">
         ${challenge.options.map((option, index) => `
-          <button class="option" onclick="selectAnswer(${index})">
+          <button
+            class="option"
+            onclick="selectAnswer(${index})"
+          >
             ${option}
           </button>
         `).join("")}
@@ -99,7 +103,8 @@ function showChallenge() {
 function selectAnswer(index) {
   answers.push({
     challenge: currentChallenge + 1,
-    answer: index
+    answer: index,
+    text: challenges[currentChallenge].options[index]
   });
 
   currentChallenge++;
@@ -115,18 +120,27 @@ function showFinal() {
   document.getElementById("app").innerHTML = `
     <section class="screen">
       <p class="eyebrow">OPERACIÓN COMPLETADA</p>
+
       <h1>AGUSTÍN...</h1>
+
       <p class="intro">
-        Has llegado al final de los ocho desafíos.
+        Llegaste al final de los ocho desafíos.
         Pero todavía queda algo por descubrir.
       </p>
+
       <h2>PREPARATE Y SALÍ.</h2>
+
       <p class="intro">
         Hay una sorpresa esperándote.
       </p>
+
       <h1><span>XENEIZE</span></h1>
     </section>
   `;
 }
 
-startButton.addEventListener("click", showChallenge);
+document.getElementById("startButton").addEventListener("click", () => {
+  currentChallenge = 0;
+  answers.length = 0;
+  showChallenge();
+});
