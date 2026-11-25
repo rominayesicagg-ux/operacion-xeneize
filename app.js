@@ -158,7 +158,26 @@ function showFinal() {
   `;
 }
 
-document.getElementById("startButton").addEventListener("click", () => {
+  <section class="screen">
+          <p class="eyebrow">OPERACIÓN XENEIZE</p>
+
+          <h1>¿ESTÁS LISTO?</h1>
+
+          <p class="intro">
+            La misión está por comenzar.
+            Ocho desafíos te esperan.
+          </p>
+
+          <button id="continueButton">CONTINUAR</button>
+        </section>
+      `;
+
+      document.getElementById("continueButton").addEventListener("click", () => {
+        showChallenge();
+      });
+    }
+  );
+});
   const boton = document.getElementById("startButton");
 
   boton.disabled = true;
