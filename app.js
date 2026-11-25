@@ -137,52 +137,46 @@ function selectAnswer(index) {
 function showFinal() {
   document.getElementById("app").innerHTML = `
     <section class="screen">
-      <p class="eyebrow">OPERACIÓN COMPLETADA</p>
+      <p class="eyebrow">MISIÓN COMPLETADA</p>
 
-      <h1>AGUSTÍN...</h1>
+      <h1>¡AGUSTÍN!</h1>
 
-      <p class="intro">
-        Llegaste al final de los ocho desafíos.
-        Pero todavía queda algo por descubrir.
-      </p>
-
-      <h2>PREPARATE Y SALÍ.</h2>
+      <h2>LO LOGRASTE</h2>
 
       <p class="intro">
-        Hay una sorpresa esperándote.
+        Ocho desafíos. Ocho decisiones.
+        Una pasión que no tiene límites.
       </p>
 
       <h1><span>XENEIZE</span></h1>
+
+      <p class="intro">
+        Pero la verdadera sorpresa todavía no apareció.
+      </p>
+
+      <h2>LA MISIÓN CONTINÚA...</h2>
+
+      <p class="intro">
+        Prepará tu corazón, levantate y salí.
+        Hay algo extraordinario esperándote.
+      </p>
+
+      <button id="finishButton">TERMINAR</button>
     </section>
   `;
-}
-
-document.getElementById("startButton").addEventListener("click", () => {
-  const boton = document.getElementById("startButton");
-
-  boton.disabled = true;
-
-  currentChallenge = 0;
-  answers.length = 0;
 
   narrar(
-    "¡Señoras y señores! ¡Atención, Agustín! Hoy comienza una experiencia extraordinaria. Ocho desafíos, una pasión y una sorpresa que te está esperando. ¡Que comience Operación Xeneize!",
-    () => {
-      document.getElementById("app").innerHTML = `
-        <section class="screen">
-          <p class="eyebrow">OPERACIÓN XENEIZE</p>
-          <h1>¿ESTÁS LISTO?</h1>
-          <p class="intro">
-            La misión está por comenzar.
-            Ocho desafíos te esperan.
-          </p>
-          <button id="continueButton">CONTINUAR</button>
-        </section>
-      `;
-
-      document.getElementById("continueButton").addEventListener("click", () => {
-        showChallenge();
-      });
-    }
+    "¡Agustín! ¡Misión completada! Superaste los ocho desafíos demostrando que la pasión Xeneize se lleva en el corazón. Pero atención... esto todavía no terminó. La verdadera sorpresa está esperando afuera. ¡Preparáte, levantate y salí! ¡Lo mejor está por comenzar!"
   );
-});
+
+  document.getElementById("finishButton").addEventListener("click", () => {
+    window.speechSynthesis.cancel();
+
+    document.getElementById("app").innerHTML = `
+      <section class="screen">
+        <h1>OPERACIÓN FINALIZADA</h1>
+        <p class="intro">Ya podés cerrar esta pantalla.</p>
+      </section>
+    `;
+  });
+}
