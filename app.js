@@ -1,4 +1,3 @@
-
 const challenges = [
   {
     title: "EL RUGIDO DE LA BOMBONERA",
@@ -68,6 +67,7 @@ const challenges = [
 
 let currentChallenge = 0;
 const answers = [];
+
 function narrar(texto, alTerminar) {
   window.speechSynthesis.cancel();
 
@@ -85,17 +85,15 @@ function narrar(texto, alTerminar) {
 
   window.speechSynthesis.speak(voz);
 }
+
 function showChallenge() {
   const challenge = challenges[currentChallenge];
 
   document.getElementById("app").innerHTML = `
     <section class="screen">
       <p class="eyebrow">OPERACIÓN XENEIZE</p>
-
       <h2>DESAFÍO ${currentChallenge + 1} / 8</h2>
-
       <h1>${challenge.title}</h1>
-
       <p class="intro">${challenge.question}</p>
 
       <div class="options">
@@ -114,7 +112,8 @@ function showChallenge() {
       </p>
     </section>
   `;
-   const texto = `${challenge.title}. ${challenge.question}. Opción uno: ${challenge.options[0]}. Opción dos: ${challenge.options[1]}.`;
+
+  const texto = `${challenge.title}. ${challenge.question}. Opción uno: ${challenge.options[0]}. Opción dos: ${challenge.options[1]}.`;
 
   narrar(texto);
 }
@@ -158,21 +157,7 @@ function showFinal() {
   `;
 }
 
-  <section class="screen">
-          <p class="eyebrow">OPERACIÓN XENEIZE</p>
-
-          <h1>¿ESTÁS LISTO?</h1>
-
-          <p class="intro">
-            La misión está por comenzar.
-            Ocho desafíos te esperan.
-          </p>
-
-          <button id="continueButton">CONTINUAR</button>
-        </section>
-      `;
-
-     document.getElementById("startButton").addEventListener("click", () => {
+document.getElementById("startButton").addEventListener("click", () => {
   const boton = document.getElementById("startButton");
 
   boton.disabled = true;
