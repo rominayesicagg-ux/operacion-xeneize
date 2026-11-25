@@ -189,7 +189,7 @@ document.getElementById("startButton").addEventListener("click", () => {
   answers.length = 0;
 
   const sonidoHinchada = new Audio("sonidos/hinchada.mp3");
-  sonidoHinchada.volume = 0.20;
+ sonidoHinchada.volume = 0.08;
   sonidoHinchada.play().catch(error => {
     console.log("No se pudo reproducir el sonido:", error);
   });
