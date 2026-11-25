@@ -159,11 +159,15 @@ function showFinal() {
 }
 
 document.getElementById("startButton").addEventListener("click", () => {
+  const boton = document.getElementById("startButton");
+
+  boton.disabled = true;
+
   currentChallenge = 0;
   answers.length = 0;
 
   narrar(
-    "¡Señoras y señores! ¡Atención, Agustín! Hoy comienza una experiencia extraordinaria. Ocho desafíos, una pasión y una sorpresa que te está esperando. ¡Que comience Operación Xeneize!",
+    "¡Señoras y señores! ¡Atención, Agustín!         Hoy comienza una experiencia extraordinaria. Ocho desafíos, una pasión y una sorpresa que te está esperando.          ¡Que comience Operación Xeneize!",
     () => {
       showChallenge();
     }
