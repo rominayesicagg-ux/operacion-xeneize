@@ -188,9 +188,18 @@ document.getElementById("startButton").addEventListener("click", () => {
   currentChallenge = 0;
   answers.length = 0;
 
+  const sonidoHinchada = new Audio("sonidos/hinchada.mp3");
+  sonidoHinchada.volume = 0.20;
+  sonidoHinchada.play().catch(error => {
+    console.log("No se pudo reproducir el sonido:", error);
+  });
+
   narrar(
     "¡Señoras y señores! ¡Atención, Agustín! Hoy comienza una experiencia extraordinaria. Ocho desafíos, una pasión y una sorpresa que te está esperando. ¡Que comience Operación Xeneize!",
     () => {
+      sonidoHinchada.pause();
+      sonidoHinchada.currentTime = 0;
+
       document.getElementById("app").innerHTML = `
         <section class="screen">
           <p class="eyebrow">OPERACIÓN XENEIZE</p>
