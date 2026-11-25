@@ -21,7 +21,7 @@ body {
   color: var(--white);
   background:
     linear-gradient(rgba(3, 11, 29, .78), rgba(3, 11, 29, .88)),
-    url("imagenes/bombonera.jpg") center / cover fixed;
+    url("bombonera.jpg") center / cover fixed;
 }
 #app {
   min-height: 100vh;
